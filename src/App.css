@@ -1,29 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Mate+SC&display=swap");
+
 body {
+  background: rgb(255, 215, 131);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 215, 131, 1) 0%,
+    rgba(255, 186, 255, 1) 100%
+  );
+  font-family: "Mate SC", serif;
   font-size: 18px;
+  padding: 0;
+  margin: 0;
+}
+
+.nav {
+  text-align: center;
+}
+
+.cities {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.cities a {
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 .App {
-  margin: 70px auto;
-  max-width: 80%;
-}
-
-.Title {
-  font-size: 2.5rem;
-  text-align: center;
-  margin: 1.5rem 0;
+  margin: 40px auto;
+  max-width: 85%;
 }
 
 .WeatherCard {
-  border: 2px solid black;
-  border-radius: 20px;
-  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(14.5px);
+  -webkit-backdrop-filter: blur(14.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 60px;
+  padding: 1.5rem 1rem;
 }
 
 .currentTemp {
-  font-size: 2rem;
-  text-align: left;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
-.WeatherCard:not(:first-child) {
-  text-align: right;
+.currentTemp strong {
+  font-size: 8rem;
+  margin-bottom: 2rem;
+}
+
+.other-info {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.other-info strong {
+  font-size: 2rem;
 }
