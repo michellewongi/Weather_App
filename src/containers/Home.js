@@ -1,6 +1,8 @@
 import React, { useMemo } from "react";
 import WeatherCard from "../components/WeatherCards";
 
+const APIKey = "8fb50a254d1d00c642f7408ac5294de5";
+
 function Home() {
   // weatherType value changes which is why it is stored in memo
   const {
@@ -24,7 +26,7 @@ function Home() {
   }, []);
   return (
     <main className="App">
-      <header>Weather App</header>
+      <header className="Title">Weather App</header>
       <WeatherCard
         cloudiness={cloudiness}
         currentTemp={currentTemp}

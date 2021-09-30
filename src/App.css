@@ -1,9 +1,29 @@
+body {
+  font-size: 18px;
+}
+
 .App {
-  margin: 0 auto;
-  max-width: 1080px;
+  margin: 70px auto;
+  max-width: 80%;
+}
+
+.Title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin: 1.5rem 0;
 }
 
 .WeatherCard {
-  border: 1px solid black;
+  border: 2px solid black;
   border-radius: 20px;
+  padding: 1rem 2rem;
+}
+
+.currentTemp {
+  font-size: 2rem;
+  text-align: left;
+}
+
+.WeatherCard:not(:first-child) {
+  text-align: right;
 }
