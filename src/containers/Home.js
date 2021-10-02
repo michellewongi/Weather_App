@@ -69,13 +69,19 @@ function Home() {
   return (
     <main className="App">
       <header>
-        <h3 className="nav">Cities</h3>
         <div className="cities">
+          <h3 className="picker">Pick a city: </h3>
           <p>
-            <a href="/?city=Paris">Paris</a>
+            <a href="/?city=Beijing">Beijing</a>
           </p>
           <p>
-            <a href="/?city=Tokyo">Tokyo</a>
+            <a href="/?city=New+York">New York</a>
+          </p>
+          <p>
+            <a href="/?city=London">London</a>
+          </p>
+          <p>
+            <a href="/?city=Los+Angeles">Los Angeles</a>
           </p>
         </div>
       </header>
