@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/Weather_App/static/css/main.93e4f027.chunk.css",
-    "main.js": "/Weather_App/static/js/main.16589b91.chunk.js",
-    "main.js.map": "/Weather_App/static/js/main.16589b91.chunk.js.map",
-    "runtime-main.js": "/Weather_App/static/js/runtime-main.c7798d64.js",
-    "runtime-main.js.map": "/Weather_App/static/js/runtime-main.c7798d64.js.map",
-    "static/js/2.6fd99133.chunk.js": "/Weather_App/static/js/2.6fd99133.chunk.js",
-    "static/js/2.6fd99133.chunk.js.map": "/Weather_App/static/js/2.6fd99133.chunk.js.map",
-    "static/js/3.e7619006.chunk.js": "/Weather_App/static/js/3.e7619006.chunk.js",
-    "static/js/3.e7619006.chunk.js.map": "/Weather_App/static/js/3.e7619006.chunk.js.map",
-    "index.html": "/Weather_App/index.html",
-    "static/css/main.93e4f027.chunk.css.map": "/Weather_App/static/css/main.93e4f027.chunk.css.map",
-    "static/js/2.6fd99133.chunk.js.LICENSE.txt": "/Weather_App/static/js/2.6fd99133.chunk.js.LICENSE.txt"
+    "main.css": "/static/css/main.93e4f027.chunk.css",
+    "main.js": "/static/js/main.16589b91.chunk.js",
+    "main.js.map": "/static/js/main.16589b91.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.4cb56a25.js",
+    "runtime-main.js.map": "/static/js/runtime-main.4cb56a25.js.map",
+    "static/js/2.6fd99133.chunk.js": "/static/js/2.6fd99133.chunk.js",
+    "static/js/2.6fd99133.chunk.js.map": "/static/js/2.6fd99133.chunk.js.map",
+    "static/js/3.e7619006.chunk.js": "/static/js/3.e7619006.chunk.js",
+    "static/js/3.e7619006.chunk.js.map": "/static/js/3.e7619006.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.93e4f027.chunk.css.map": "/static/css/main.93e4f027.chunk.css.map",
+    "static/js/2.6fd99133.chunk.js.LICENSE.txt": "/static/js/2.6fd99133.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.c7798d64.js",
+    "static/js/runtime-main.4cb56a25.js",
     "static/js/2.6fd99133.chunk.js",
     "static/css/main.93e4f027.chunk.css",
     "static/js/main.16589b91.chunk.js"
