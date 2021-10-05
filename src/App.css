@@ -3,7 +3,7 @@
 body {
   background-color: #ccdcff;
   font-family: "Mate SC", serif;
-  font-size: 18px;
+  font-size: 20px;
   padding: 0;
   margin: 0;
 }
@@ -21,41 +21,60 @@ body {
 }
 
 .cities a {
-  color: black;
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.35);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border-radius: 10px;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  border-radius: 5px;
   border: 1px solid rgba(255, 255, 255, 0.18);
+  color: black;
   font-weight: bold;
   padding: 8px;
   text-decoration: none;
 }
 
 .city-name {
-  font-size: 2.5rem;
+  font-size: 3rem;
+  margin: 60px 0 0;
   text-align: center;
 }
 
 .App {
-  margin: 40px auto;
-  max-width: 84%;
+  margin: 30px auto;
+  max-width: 85%;
 }
 
 .WeatherCard {
-  background: rgba(255, 255, 255, 0.25);
+  display: grid;
+  gap: 20px;
+  grid-template-columns: [col1-start] 1fr [col2-start] 1fr [col3-start] 1fr [col4-start] 1fr;
+  grid-template-rows: [row1-start] 100px [row2-start] 100px [row3-start] 100px [row4-start] 100px [row5-start] 100px;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.currentTemp,
+.weather-type,
+.cloudiness,
+.highlow,
+.wind,
+.humidity {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.35);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border-radius: 60px;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  padding: 1.5rem 1rem;
-  margin-bottom: 5rem;
+  justify-content: center;
 }
 
 .currentTemp {
   display: flex;
+  grid-column: col1-start/col3-start;
+  grid-row: row1-start / row6-start;
   flex-direction: column;
   text-align: center;
 }
@@ -65,13 +84,46 @@ body {
   margin-bottom: 2rem;
 }
 
-.other-info {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  margin-bottom: 2rem;
-  text-align: center;
+.weather-type strong,
+.cloudiness strong,
+.highlow strong,
+.wind strong,
+.humidity strong {
+  font-size: 2.5rem;
 }
 
-.other-info strong {
-  font-size: 2rem;
+.weather-type {
+  grid-column: col3-start/col4-start;
+  grid-row: row1-start / row3-start;
+}
+
+.cloudiness {
+  grid-column: col3-start/col4-start;
+  grid-row: row3-start / row5-start;
+  margin: -3px 0 20px;
+}
+
+.highlow {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  grid-column: col3-start/col4-start;
+  grid-row: row5-start / row6-start;
+  margin: -5px 0 18px;
+}
+
+.wind {
+  grid-column: col4-start/col5-start;
+  grid-row: row4-start / row6-start;
+}
+
+.humidity {
+  grid-column: col4-start/col5-start;
+  grid-row: row1-start / row4-start;
+  margin-bottom: -2px;
+}
+
+.WeatherImageWrapper {
+  font-size: 120px;
 }
