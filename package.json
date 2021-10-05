@@ -1,8 +1,8 @@
 {
   "name": "exercise-two",
   "version": "0.1.0",
-  "private": true,
   "homepage": "https://mw3981.github.io/Weather_App/",
+  "private": true,
   "dependencies": {
     "-": "^0.0.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
