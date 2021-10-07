@@ -136,7 +136,6 @@ body {
   body {
     font-size: 17px;
   }
-
   .cities {
     flex-direction: column;
   }
@@ -164,6 +163,10 @@ body {
   body {
     font-size: 16px;
     margin-bottom: 0;
+  }
+
+  .city-name {
+    margin-bottom: 1rem;
   }
 
   .App {
