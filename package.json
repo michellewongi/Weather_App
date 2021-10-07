@@ -1,7 +1,7 @@
 {
   "name": "exercise-two",
   "version": "0.1.0",
-  "homepage": "https://mw3981.github.io/Weather_App/",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "-": "^0.0.1",
