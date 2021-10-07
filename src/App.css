@@ -9,28 +9,32 @@ body {
 }
 
 .picker {
-  font-size: 24px;
+  font-size: 20px;
   text-decoration: underline;
+  margin-right: 5vmin;
 }
 
 .cities {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin-bottom: 3rem;
 }
 
 .cities a {
-  background: rgba(255, 255, 255, 0.35);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(0px);
-  -webkit-backdrop-filter: blur(0px);
-  border-radius: 5px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
   color: black;
   font-weight: bold;
   padding: 8px;
   text-decoration: none;
+}
+
+.cities p {
+  font-size: 17px;
+  margin-right: 5vmin;
+}
+
+.city {
+  display: flex;
 }
 
 .city-name {
@@ -126,4 +130,82 @@ body {
 
 .WeatherImageWrapper {
   font-size: 120px;
+}
+
+@media (min-width: 456px) and (max-width: 600px) {
+  body {
+    font-size: 17px;
+  }
+
+  .cities {
+    flex-direction: column;
+  }
+
+  .city {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .currentTemp strong {
+    font-size: 6rem;
+    margin-bottom: 2rem;
+  }
+
+  .weather-type strong,
+  .cloudiness strong,
+  .highlow strong,
+  .wind strong,
+  .humidity strong {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 456px) {
+  body {
+    font-size: 16px;
+    margin-bottom: 0;
+  }
+
+  .App {
+    max-width: 100%;
+    margin-bottom: 0;
+  }
+
+  .WeatherCard {
+    background: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
+  .currentTemp,
+  .weather-type,
+  .cloudiness,
+  .highlow,
+  .wind,
+  .humidity {
+    background: none;
+    box-shadow: none;
+    backdrop-filter: none;
+    border: none;
+    margin: 0 0 2rem;
+  }
+
+  .picker {
+    text-align: center;
+  }
+
+  .cities {
+    flex-direction: column;
+  }
+
+  .city {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 }

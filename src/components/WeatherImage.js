@@ -5,10 +5,15 @@ import {
   faSun,
   faCloudRain,
   faSnowflake,
+  faSmog,
 } from "@fortawesome/free-solid-svg-icons";
 
-function WeatherImage({ weatherType }) {
+function changeColor() {
   let nav = document.querySelectorAll("a");
+  return Array.from(nav).forEach((nav) => (nav.style.color = "white"));
+}
+
+function WeatherImage({ weatherType }) {
   switch (weatherType) {
     case "Clouds":
       return (
@@ -41,11 +46,16 @@ function WeatherImage({ weatherType }) {
         (document.body.style.backgroundRepeat = "no-repeat"),
         (document.body.style.backgroundSize = "cover"),
         (document.body.style.color = "white"),
-        (nav[0].style.color = "white"),
-        (nav[1].style.color = "white"),
-        (nav[2].style.color = "white"),
-        (nav[3].style.color = "white"),
+        changeColor(),
         (<FontAwesomeIcon icon={faCloudRain} />)
+      );
+    case "Haze":
+      return (
+        (document.body.style.backgroundImage =
+          "url('https://i.gifer.com/GCum.gif')"),
+        (document.body.style.backgroundRepeat = "no-repeat"),
+        (document.body.style.backgroundSize = "cover"),
+        (<FontAwesomeIcon icon={faSmog} />)
       );
     default:
       return <FontAwesomeIcon icon={faSun} />;

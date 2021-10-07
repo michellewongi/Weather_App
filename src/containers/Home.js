@@ -71,18 +71,23 @@ function Home() {
       <header>
         <div className="cities">
           <h3 className="picker">Pick a city: </h3>
-          <p>
-            <a href="/?city=Beijing">Beijing</a>
-          </p>
-          <p>
-            <a href="/?city=New+York">New York</a>
-          </p>
-          <p>
-            <a href="/?city=London">London</a>
-          </p>
-          <p>
-            <a href="/?city=Los+Angeles">Los Angeles</a>
-          </p>
+          <div className="city">
+            <p>
+              <a href="/?city=Beijing">Beijing</a>
+            </p>
+            <p>
+              <a href="/?city=New+York">New York</a>
+            </p>
+            <p>
+              <a href="/?city=London">London</a>
+            </p>
+            <p>
+              <a href="/?city=Los+Angeles">Los Angeles</a>
+            </p>
+            <p>
+              <a href="/?city=Dallas">Dallas</a>
+            </p>
+          </div>
         </div>
       </header>
       <h1 className="city-name">{city}</h1>
