@@ -44,7 +44,6 @@ body {
 }
 
 .App {
-  height: 100vh;
   margin: 30px auto;
   max-width: 95%;
 }
@@ -142,6 +141,7 @@ body {
   }
 
   .App {
+    height: 100%;
     margin-bottom: 400px;
   }
 
