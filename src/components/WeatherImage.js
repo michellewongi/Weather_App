@@ -52,7 +52,7 @@ function WeatherImage({ weatherType }) {
     case ("Haze", "Fog"):
       return (
         (document.body.style.backgroundImage =
-          "url('https://i.gifer.com/GCum.gif')"),
+          "url('https://media.giphy.com/media/xT9GEpwYcYtwrqjdQc/giphy.gif')"),
         (document.body.style.backgroundRepeat = "no-repeat"),
         (document.body.style.backgroundSize = "cover"),
         (<FontAwesomeIcon icon={faSmog} />)
