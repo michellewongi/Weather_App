@@ -26,7 +26,7 @@ function WeatherImage({ weatherType }) {
     case "Clear":
       return (
         (document.body.style.backgroundImage =
-          "url('https://media.giphy.com/media/QmH77NDL04OX5vWQZE/giphy.gif')"),
+          "url('https://media.giphy.com/media/paMdZlRXlc96o/giphy.gif')"),
         (document.body.style.backgroundRepeat = "no-repeat"),
         (document.body.style.backgroundSize = "cover"),
         (<FontAwesomeIcon icon={faSun} />)
