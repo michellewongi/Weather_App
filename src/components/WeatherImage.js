@@ -49,7 +49,7 @@ function WeatherImage({ weatherType }) {
         changeColor(),
         (<FontAwesomeIcon icon={faCloudRain} />)
       );
-    case "Haze":
+    case ("Haze", "Fog"):
       return (
         (document.body.style.backgroundImage =
           "url('https://i.gifer.com/GCum.gif')"),
