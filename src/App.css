@@ -44,7 +44,7 @@ body {
 }
 
 .App {
-  height: 100vh;
+  height: 110vh;
   margin: 30px auto;
   max-width: 95%;
 }
@@ -141,11 +141,6 @@ body {
     font-size: 17px;
   }
 
-  .App {
-    height: 100%;
-    margin-bottom: 400px;
-  }
-
   .cities {
     flex-direction: column;
   }
@@ -180,8 +175,8 @@ body {
   }
 
   .App {
-    height: 140vh;
-    max-width: 100%;
+    height: 100%;
+    max-width: 100vw;
     margin-bottom: 0;
   }
 
@@ -222,5 +217,11 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+  }
+}
+
+@media (max-height: 375px) and (max-width: 815px) {
+  .App {
+    height: auto;
   }
 }
