@@ -44,7 +44,7 @@ body {
 }
 
 .App {
-  height: 110vh;
+  min-height: 110vh;
   margin: 30px auto;
   max-width: 95%;
 }
@@ -220,7 +220,7 @@ body {
   }
 }
 
-@media (max-height: 375px) and (max-width: 815px) {
+@media (max-height: 390px) {
   .App {
     height: auto;
   }
