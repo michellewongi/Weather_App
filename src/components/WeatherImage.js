@@ -21,7 +21,6 @@ function WeatherImage({ weatherType }) {
           "url('https://media.giphy.com/media/mno6BJfy8USic/source.gif')"),
         (document.body.style.backgroundRepeat = "no-repeat"),
         (document.body.style.backgroundSize = "cover"),
-        (document.body.style.height = "100vh"),
         (<FontAwesomeIcon icon={faCloud} />)
       );
     case "Clear":
@@ -30,7 +29,6 @@ function WeatherImage({ weatherType }) {
           "url('https://media.giphy.com/media/paMdZlRXlc96o/giphy.gif')"),
         (document.body.style.backgroundRepeat = "no-repeat"),
         (document.body.style.backgroundSize = "cover"),
-        (document.body.style.height = "100vh"),
         (<FontAwesomeIcon icon={faSun} />)
       );
     case "Snow":
@@ -39,7 +37,6 @@ function WeatherImage({ weatherType }) {
           "url('https://media.giphy.com/media/bGaOdqeqYQKc0/giphy.gif)"),
         (document.body.style.backgroundRepeat = "no-repeat"),
         (document.body.style.backgroundSize = "cover"),
-        (document.body.style.height = "100vh"),
         (<FontAwesomeIcon icon={faSnowflake} />)
       );
     case "Drizzle":
@@ -49,7 +46,6 @@ function WeatherImage({ weatherType }) {
           "url('https://i.gifer.com/AcU9.gif')"),
         (document.body.style.backgroundRepeat = "no-repeat"),
         (document.body.style.backgroundSize = "cover"),
-        (document.body.style.height = "100vh"),
         (document.body.style.color = "white"),
         changeColor(),
         (<FontAwesomeIcon icon={faCloudRain} />)
@@ -61,7 +57,6 @@ function WeatherImage({ weatherType }) {
           "url('https://media.giphy.com/media/xT9GEpwYcYtwrqjdQc/giphy.gif')"),
         (document.body.style.backgroundRepeat = "no-repeat"),
         (document.body.style.backgroundSize = "cover"),
-        (document.body.style.height = "100vh"),
         (<FontAwesomeIcon icon={faSmog} />)
       );
     default:
