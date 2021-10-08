@@ -39,7 +39,7 @@ function WeatherImage({ weatherType }) {
         (document.body.style.backgroundSize = "cover"),
         (<FontAwesomeIcon icon={faSnowflake} />)
       );
-    case "Rain":
+    case ("Rain", "Drizzle"):
       return (
         (document.body.style.backgroundImage =
           "url('https://i.gifer.com/AcU9.gif')"),
