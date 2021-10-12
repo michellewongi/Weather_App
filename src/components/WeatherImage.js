@@ -20,7 +20,7 @@ function WeatherImage({ weatherType }) {
         (document.body.style.backgroundImage =
           "url('https://media.giphy.com/media/mno6BJfy8USic/source.gif')"),
         (document.body.style.backgroundRepeat = "no-repeat"),
-        (document.body.style.backgroundSize = "cover"),
+        (document.body.style.backgroundSize = "100% 100%"),
         (<FontAwesomeIcon icon={faCloud} />)
       );
     case "Clear":
@@ -28,7 +28,7 @@ function WeatherImage({ weatherType }) {
         (document.body.style.backgroundImage =
           "url('https://media.giphy.com/media/paMdZlRXlc96o/giphy.gif')"),
         (document.body.style.backgroundRepeat = "no-repeat"),
-        (document.body.style.backgroundSize = "cover"),
+        (document.body.style.backgroundSize = "100% 100%"),
         (<FontAwesomeIcon icon={faSun} />)
       );
     case "Snow":
@@ -36,7 +36,7 @@ function WeatherImage({ weatherType }) {
         (document.body.style.backgroundImage =
           "url('https://media.giphy.com/media/bGaOdqeqYQKc0/giphy.gif)"),
         (document.body.style.backgroundRepeat = "no-repeat"),
-        (document.body.style.backgroundSize = "cover"),
+        (document.body.style.backgroundSize = "100% 100%"),
         (<FontAwesomeIcon icon={faSnowflake} />)
       );
     case "Drizzle":
@@ -45,7 +45,7 @@ function WeatherImage({ weatherType }) {
         (document.body.style.backgroundImage =
           "url('https://i.gifer.com/AcU9.gif')"),
         (document.body.style.backgroundRepeat = "no-repeat"),
-        (document.body.style.backgroundSize = "cover"),
+        (document.body.style.backgroundSize = "100% 100%"),
         (document.body.style.color = "white"),
         changeColor(),
         (<FontAwesomeIcon icon={faCloudRain} />)
@@ -56,7 +56,7 @@ function WeatherImage({ weatherType }) {
         (document.body.style.backgroundImage =
           "url('https://media.giphy.com/media/xT9GEpwYcYtwrqjdQc/giphy.gif')"),
         (document.body.style.backgroundRepeat = "no-repeat"),
-        (document.body.style.backgroundSize = "cover"),
+        (document.body.style.backgroundSize = "100% 100%"),
         (<FontAwesomeIcon icon={faSmog} />)
       );
     default:
