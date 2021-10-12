@@ -47,7 +47,7 @@ body {
 .App {
   min-height: 110vh;
   margin: 30px auto;
-  max-width: 95%;
+  max-width: 100%;
 }
 
 .WeatherCard {
