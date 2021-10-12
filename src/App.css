@@ -6,6 +6,7 @@ body {
   font-size: 20px;
   padding: 0;
   margin: 0;
+  width: 100vw;
 }
 
 .picker {
@@ -217,12 +218,5 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-  }
-}
-
-@media (max-height: 400px) {
-  .App {
-    height: auto;
-    width: 100vw;
   }
 }
