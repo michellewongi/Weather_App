@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 //axios allows you to make HTTP requests
 import axios from "axios";
-import { useLocation } from "react-router";
+// import { useLocation } from "react-router";
 import WeatherCard from "../components/WeatherCards";
 
 const APIKey = "8fb50a254d1d00c642f7408ac5294de5";
@@ -9,9 +9,9 @@ const APIKey = "8fb50a254d1d00c642f7408ac5294de5";
 // URL search parameters
 // localhost:3000/?city=paris
 // Abstract away URL Search Params here to make it easier to use
-function useQuery() {
-  return new URLSearchParams(useLocation().search);
-}
+// function useQuery() {
+//   return new URLSearchParams(useLocation().search);
+// }
 
 function fahrenheit(kelvin) {
   let newTemp = Math.floor((kelvin - 273) * (9 / 5) + 32);
@@ -20,31 +20,34 @@ function fahrenheit(kelvin) {
 
 function Home() {
   const [city, setCity] = useState();
+  const [cityName, setCityName] = useState();
   const [weatherData, setWeatherData] = useState();
-  let query = useQuery();
 
   const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}`;
 
-  console.log(URL);
-
-  useEffect(() => {
-    const cityValue = query.get("city");
-    setCity(cityValue);
-  }, [query]);
-
-  useEffect(() => {
-    // Get weather data from weather API
-    if (city) {
-      axios
-        .get(URL)
-        .then(function (response) {
-          setWeatherData(response.data);
-        })
-        .catch(function (error) {
-          console.warn(error);
-        });
+  function handleChange(e) {
+    if (e.target.value.indexOf(" ") > -1) {
+      setCity(e.target.value.split(" ").join("+"));
+    } else {
+      setCity(e.target.value);
     }
-  }, [URL, city]);
+  }
+
+  function setName() {
+    setCityName(city.split("+").join(" "));
+  }
+
+  const getCity = () => {
+    // Get weather data from weather API
+    axios
+      .get(URL)
+      .then(function (response) {
+        setWeatherData(response.data);
+      })
+      .catch(function (error) {
+        console.warn(error);
+      });
+  };
 
   // weatherType value changes which is why it is stored in memo
   const {
@@ -71,28 +74,23 @@ function Home() {
   return (
     <main className="App">
       <header>
-        <div className="cities">
-          <h3 className="picker">Pick a city: </h3>
-          <div className="city">
-            <p>
-              <a href="/?city=Beijing">Beijing</a>
-            </p>
-            <p>
-              <a href="/?city=New+York">New York</a>
-            </p>
-            <p>
-              <a href="/?city=London">London</a>
-            </p>
-            <p>
-              <a href="/?city=Los+Angeles">Los Angeles</a>
-            </p>
-            <p>
-              <a href="/?city=Dallas">Dallas</a>
-            </p>
-          </div>
-        </div>
+        <input
+          className="searchbar"
+          type="text"
+          placeholder="Name of city (e.g. Austin"
+          onChange={handleChange}
+        />
+        <button
+          className="searchbtn"
+          onClick={() => {
+            getCity();
+            setName();
+          }}
+        >
+          search
+        </button>
       </header>
-      <h1 className="city-name">{city}</h1>
+      <h1 className="city-name">{cityName}</h1>
       <WeatherCard
         cloudiness={cloudiness}
         currentTemp={currentTemp}

@@ -8,33 +8,33 @@ body {
   margin: 0;
 }
 
-.picker {
-  font-size: 1.2rem;
-  text-decoration: underline;
-  margin-right: 5vmin;
-}
-
-.cities {
+header {
+  align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin-bottom: 3rem;
+  margin: 0 auto;
+  width: 30%;
 }
 
-.cities a {
-  color: black;
-  font-weight: bold;
-  padding: 8px;
-  text-decoration: none;
+input,
+button {
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.cities p {
-  font-size: 1.2rem;
-  margin-right: 5vmin;
+input {
+  height: 30px;
+  text-align: center;
 }
 
-.city {
-  display: flex;
+button {
+  height: 25px;
+  padding: 0 10px;
 }
 
 .city-name {
@@ -141,15 +141,6 @@ body {
     font-size: 17px;
   }
 
-  .cities {
-    flex-direction: column;
-  }
-
-  .city {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
   .currentTemp strong {
     font-size: 6rem;
     margin-bottom: 2rem;
@@ -204,19 +195,5 @@ body {
     backdrop-filter: none;
     border: none;
     margin: 0 0 2rem;
-  }
-
-  .picker {
-    text-align: center;
-  }
-
-  .cities {
-    flex-direction: column;
-  }
-
-  .city {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
   }
 }
