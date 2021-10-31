@@ -52,6 +52,7 @@ function WeatherImage({ weatherType }) {
       );
     case "Fog":
     case "Haze":
+    case "Mist":
       return (
         (document.body.style.backgroundImage =
           "url('https://64.media.tumblr.com/6622c9771471078d4d770314159c0c4e/tumblr_owycmlBWBm1vxekw4o1_500.gifv')"),
