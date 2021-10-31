@@ -18,7 +18,7 @@ function WeatherImage({ weatherType }) {
     case "Clouds":
       return (
         (document.body.style.backgroundImage =
-          "url('https://media.giphy.com/media/mno6BJfy8USic/source.gif')"),
+          "url('https://media.giphy.com/media/zrqT3kn77BlKv4mrHm/giphy.gif')"),
         (document.body.style.backgroundRepeat = "no-repeat"),
         (document.body.style.backgroundSize = "cover"),
         (<FontAwesomeIcon icon={faCloud} />)
@@ -26,7 +26,7 @@ function WeatherImage({ weatherType }) {
     case "Clear":
       return (
         (document.body.style.backgroundImage =
-          "url('https://media.giphy.com/media/paMdZlRXlc96o/giphy.gif')"),
+          "url('https://i2.wp.com/www.coloradoboulevard.net/wp-content/uploads/2015/05/weather-sunny-day-gif.gif?fit=700%2C477&ssl=1')"),
         (document.body.style.backgroundRepeat = "no-repeat"),
         (document.body.style.backgroundSize = "cover"),
         (<FontAwesomeIcon icon={faSun} />)
@@ -54,7 +54,7 @@ function WeatherImage({ weatherType }) {
     case "Haze":
       return (
         (document.body.style.backgroundImage =
-          "url('https://media.giphy.com/media/xT9GEpwYcYtwrqjdQc/giphy.gif')"),
+          "url('https://64.media.tumblr.com/6622c9771471078d4d770314159c0c4e/tumblr_owycmlBWBm1vxekw4o1_500.gifv')"),
         (document.body.style.backgroundRepeat = "no-repeat"),
         (document.body.style.backgroundSize = "cover"),
         (<FontAwesomeIcon icon={faSmog} />)

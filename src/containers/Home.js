@@ -25,6 +25,8 @@ function Home() {
 
   const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}`;
 
+  console.log(URL);
+
   useEffect(() => {
     const cityValue = query.get("city");
     setCity(cityValue);
