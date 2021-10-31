@@ -35,6 +35,7 @@ input {
 button {
   height: 25px;
   padding: 0 10px;
+  margin-left: 20px;
 }
 
 .city-name {
@@ -159,6 +160,14 @@ button {
   body {
     font-size: 16px;
     margin-bottom: 0;
+  }
+
+  header {
+    flex-direction: column;
+  }
+
+  button {
+    margin-top: 1rem;
   }
 
   .city-name {
