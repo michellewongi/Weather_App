@@ -1,17 +1,12 @@
 import React, { useEffect, useMemo, useState } from "react";
-//axios allows you to make HTTP requests
 import axios from "axios";
-// import { useLocation } from "react-router";
 import WeatherCard from "../components/WeatherCards";
+import CurrentCard from "../components/CurrentCard";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { NavLink } from "react-router-dom";
 
 const APIKey = "8fb50a254d1d00c642f7408ac5294de5";
-
-// URL search parameters
-// localhost:3000/?city=paris
-// Abstract away URL Search Params here to make it easier to use
-// function useQuery() {
-//   return new URLSearchParams(useLocation().search);
-// }
 
 function fahrenheit(kelvin) {
   let newTemp = Math.floor((kelvin - 273) * (9 / 5) + 32);
@@ -22,8 +17,57 @@ function Home() {
   const [city, setCity] = useState();
   const [cityName, setCityName] = useState();
   const [weatherData, setWeatherData] = useState();
+  const [long, setLong] = useState();
+  const [lat, setLat] = useState();
+  const [currentData, setCurrentData] = useState();
+  const [errorMsg, setErrorMsg] = useState();
 
   const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}`;
+
+  const geoURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=hourly,minutely&appid=${APIKey}`;
+
+  const getCity = () => {
+    axios
+      .get(URL)
+      .then(function (response) {
+        setWeatherData(response.data);
+      })
+      .catch(function (err) {
+        console.warn(err);
+        setErrorMsg(err);
+      });
+  };
+
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        let latitude = position.coords.latitude;
+        let longitude = position.coords.longitude;
+        setLat(latitude);
+        setLong(longitude);
+      });
+    }
+  });
+
+  useEffect(() => {
+    if (currentData) {
+      const title = currentData.timezone.split("_").join(" ");
+      setCityName(title.slice(title.indexOf("/") + 1));
+    } else if (weatherData) {
+      setCityName(city.split("+").join(" "));
+    }
+  });
+
+  const getCurrentLocation = () => {
+    axios
+      .get(geoURL)
+      .then(function (response) {
+        setCurrentData(response.data);
+      })
+      .catch(function (err) {
+        console.warn(err);
+      });
+  };
 
   function handleChange(e) {
     if (e.target.value.indexOf(" ") > -1) {
@@ -33,23 +77,6 @@ function Home() {
     }
   }
 
-  function setName() {
-    setCityName(city.split("+").join(" "));
-  }
-
-  const getCity = () => {
-    // Get weather data from weather API
-    axios
-      .get(URL)
-      .then(function (response) {
-        setWeatherData(response.data);
-      })
-      .catch(function (error) {
-        console.warn(error);
-      });
-  };
-
-  // weatherType value changes which is why it is stored in memo
   const {
     cloudiness,
     currentTemp,
@@ -60,7 +87,6 @@ function Home() {
     windSpeed,
   } = useMemo(() => {
     if (!weatherData) return {};
-    // this is where we process data
     return {
       cloudiness: weatherData.clouds.all,
       currentTemp: fahrenheit(weatherData.main.temp),
@@ -71,6 +97,20 @@ function Home() {
       windSpeed: weatherData.wind.speed,
     };
   }, [weatherData]);
+
+  const { cloud, currentTem, high, humid, low, type, wind } = useMemo(() => {
+    if (!currentData) return {};
+    return {
+      cloud: currentData.current.clouds,
+      currentTem: fahrenheit(currentData.current.temp),
+      high: fahrenheit(currentData.daily[0].temp.max),
+      humid: currentData.current.humidity,
+      low: fahrenheit(currentData.daily[0].temp.min),
+      type: currentData.current.weather[0].main,
+      wind: currentData.current.wind_speed,
+    };
+  }, [currentData]);
+
   return (
     <main className="App">
       <header>
@@ -84,22 +124,46 @@ function Home() {
           className="searchbtn"
           onClick={() => {
             getCity();
-            setName();
           }}
         >
           search
         </button>
       </header>
-      <h1 className="city-name">{cityName}</h1>
-      <WeatherCard
-        cloudiness={cloudiness}
-        currentTemp={currentTemp}
-        highTemp={highTemp}
-        humidity={humidity}
-        lowTemp={lowTemp}
-        weatherType={weatherType}
-        windSpeed={windSpeed}
-      />
+
+      <div className="Error">
+        {errorMsg ? <p>Location not found</p> : <></>}
+      </div>
+
+      <section className="CurrentLocation">
+        <button className="current-btn" onClick={() => getCurrentLocation()}>
+          <FontAwesomeIcon icon={faLocationDot} />
+        </button>
+      </section>
+
+      <section className="WeatherForecast">
+        <h1 className="city-name">{cityName}</h1>
+        {!currentData ? (
+          <WeatherCard
+            cloudiness={cloudiness}
+            currentTemp={currentTemp}
+            highTemp={highTemp}
+            humidity={humidity}
+            lowTemp={lowTemp}
+            weatherType={weatherType}
+            windSpeed={windSpeed}
+          />
+        ) : (
+          <CurrentCard
+            cloud={cloud}
+            currentTem={currentTem}
+            high={high}
+            humid={humid}
+            low={low}
+            type={type}
+            wind={wind}
+          />
+        )}
+      </section>
     </main>
   );
 }

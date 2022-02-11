@@ -12,7 +12,7 @@ header {
   align-items: center;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
   margin: 0 auto;
   width: 30%;
 }
@@ -35,7 +35,7 @@ input {
 button {
   height: 25px;
   padding: 0 10px;
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 .city-name {
@@ -137,7 +137,21 @@ button {
   font-size: 120px;
 }
 
-@media (min-width: 456px) and (max-width: 770px) {
+.current-btn {
+  display: block;
+  margin: 15px auto 0;
+  width: 31px;
+}
+
+.Error {
+  color: crimson;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 auto;
+  width: 170px;
+}
+
+@media screen and (min-width: 456px) and (max-width: 770px) {
   body {
     font-size: 17px;
   }
@@ -152,7 +166,7 @@ button {
   .highlow strong,
   .wind strong,
   .humidity strong {
-    font-size: 1.5rem;
+    font-size: 2.3rem;
   }
 }
 
@@ -198,6 +212,7 @@ button {
     background: none;
     box-shadow: none;
     backdrop-filter: none;
+    font-size: 1.3rem;
     border: none;
     margin: 0 0 2rem;
   }
