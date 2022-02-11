@@ -8,6 +8,10 @@ import {
   faSmog,
 } from "@fortawesome/free-solid-svg-icons";
 
+/**
+ * Function to change color of font
+ * @returns color of font changed
+ */
 function changeColor() {
   let nav = document.querySelectorAll("a");
   return Array.from(nav).forEach((nav) => (nav.style.color = "white"));

@@ -19,7 +19,6 @@ function Home() {
   const [long, setLong] = useState();
   const [lat, setLat] = useState();
   const [currentData, setCurrentData] = useState();
-  const [errorMsg, setErrorMsg] = useState();
 
   const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}`;
 
@@ -33,29 +32,11 @@ function Home() {
       })
       .catch(function (err) {
         console.warn(err);
-        setErrorMsg(err);
+        setWeatherData();
+        setCityName();
+        alert("No location found :C");
       });
   };
-
-  useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        let latitude = position.coords.latitude;
-        let longitude = position.coords.longitude;
-        setLat(latitude);
-        setLong(longitude);
-      });
-    }
-  });
-
-  useEffect(() => {
-    if (currentData) {
-      const title = currentData.timezone.split("_").join(" ");
-      setCityName(title.slice(title.indexOf("/") + 1));
-    } else if (weatherData) {
-      setCityName(city.split("+").join(" "));
-    }
-  }, [currentData, weatherData, cityName, city]);
 
   const getCurrentLocation = () => {
     axios
@@ -68,11 +49,43 @@ function Home() {
       });
   };
 
-  function handleChange(e) {
-    if (e.target.value.indexOf(" ") > -1) {
-      setCity(e.target.value.split(" ").join("+"));
+  // to display weather forecast
+  useEffect(() => {
+    getCity();
+  }, [city]);
+
+  // to find user's current location and set state accordingly
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        let latitude = position.coords.latitude;
+        let longitude = position.coords.longitude;
+        setLat(latitude);
+        setLong(longitude);
+      });
+    }
+  });
+
+  // reformatting the string of city name and setting state accordingly
+  useEffect(() => {
+    if (currentData) {
+      const title = currentData.timezone.split("_").join(" ");
+      setCityName(title.slice(title.indexOf("/") + 1));
+    } else if (weatherData) {
+      setCityName(city.split("+").join(" "));
+    }
+  }, [currentData, weatherData, cityName, city]);
+
+  /**
+   * Function to get the value of the search input and set state accordingly
+   * @returns State updated
+   */
+  function handleChange() {
+    const bar = document.getElementById("input-field").value;
+    if (bar.indexOf(" ") > -1) {
+      setCity(bar.split(" ").join("+"));
     } else {
-      setCity(e.target.value);
+      setCity(bar);
     }
   }
 
@@ -114,25 +127,21 @@ function Home() {
     <main className="App">
       <header>
         <input
+          id="input-field"
           className="searchbar"
           type="text"
           placeholder="Name of city (e.g. Austin"
-          onChange={handleChange}
         />
         <button
           className="searchbtn"
           onClick={() => {
-            getCity();
+            handleChange();
             setCurrentData(null);
           }}
         >
           search
         </button>
       </header>
-
-      <div className="Error">
-        {errorMsg ? <p>Location not found</p> : <></>}
-      </div>
 
       <section className="CurrentLocation">
         <button className="current-btn" onClick={() => getCurrentLocation()}>
