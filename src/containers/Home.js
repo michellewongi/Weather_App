@@ -4,7 +4,6 @@ import WeatherCard from "../components/WeatherCards";
 import CurrentCard from "../components/CurrentCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
-import { NavLink } from "react-router-dom";
 
 const APIKey = "8fb50a254d1d00c642f7408ac5294de5";
 
@@ -56,7 +55,7 @@ function Home() {
     } else if (weatherData) {
       setCityName(city.split("+").join(" "));
     }
-  });
+  }, [currentData, weatherData, cityName, city]);
 
   const getCurrentLocation = () => {
     axios
@@ -124,6 +123,7 @@ function Home() {
           className="searchbtn"
           onClick={() => {
             getCity();
+            setCurrentData(null);
           }}
         >
           search
